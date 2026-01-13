@@ -1,0 +1,866 @@
+/* ============================================ */
+/* HERO INTRO SECTION - Z-AXIS ZOOM */
+/* ============================================ */
+
+.heroSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: -10%;
+    width: 120%;
+    height: 120%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+    transform-origin: center center;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.heroTitle {
+    font-family: var(--font-heading);
+    font-size: var(--text-hero);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-bg-light);
+    will-change: transform, opacity;
+    transform-origin: center center;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.heroSubtitle {
+    font-family: var(--font-heading);
+    font-size: var(--text-subhero);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text-muted);
+    letter-spacing: 0.08em;
+    margin-top: var(--space-4);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================ */
+/* ROTATING SCROLL BADGE */
+/* ============================================ */
+
+.scrollBadge {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 90px;
+    z-index: 20;
+    will-change: transform, opacity;
+}
+
+.scrollBadgeCircle {
+    width: 100%;
+    height: 100%;
+    animation: rotateScroll 12s linear infinite;
+}
+
+.scrollBadgeText {
+    font-size: 8px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    fill: var(--color-bg-light);
+}
+
+@keyframes rotateScroll {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.scrollArrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent-red);
+    border-radius: 50%;
+    color: var(--color-bg-light);
+}
+
+/* ============================================ */
+/* FLOOR STACKING SECTIONS */
+/* ============================================ */
+
+.sectionsContainer {
+    position: relative;
+    width: 100%;
+}
+
+.roomSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+.roomBackground {
+    position: absolute;
+    inset: -10%;
+    width: 120%;
+    height: 120%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+    transform-origin: center center;
+}
+
+.roomOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(6, 6, 8, 0.85) 0%,
+            rgba(6, 6, 8, 0.5) 40%,
+            rgba(6, 6, 8, 0.2) 70%,
+            transparent 100%);
+    pointer-events: none;
+}
+
+/* ============================================ */
+/* ROOM CONTENT - LARGER TEXT FOR BIG SCREENS */
+/* ============================================ */
+
+.roomContent {
+    position: relative;
+    z-index: 10;
+    padding: 0 var(--content-padding);
+    padding-bottom: var(--space-16);
+    max-width: 850px;
+    will-change: transform, opacity;
+}
+
+.roomHeading {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text);
+    line-height: var(--line-height-tight);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-6);
+}
+
+.roomSubheading {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-accent-orange);
+    margin-bottom: var(--space-6);
+    font-style: italic;
+    line-height: var(--line-height-relaxed);
+}
+
+.roomText {
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-6);
+}
+
+.roomEmphasis {
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text);
+    line-height: var(--line-height-relaxed);
+    font-style: italic;
+    border-left: 4px solid var(--color-accent-red);
+    padding-left: var(--space-8);
+    margin-top: var(--space-6);
+}
+
+.bulletList {
+    list-style: none;
+    margin-top: var(--space-6);
+    padding-left: 0;
+}
+
+.bulletList li {
+    position: relative;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    padding-left: var(--space-8);
+    margin-bottom: var(--space-3);
+}
+
+.bulletList li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-green);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* ============================================ */
+/* CIRCULAR FRAMES - LARGER FOR BIG SCREENS */
+/* ============================================ */
+
+.circularFramesContainer {
+    position: absolute;
+    top: 50%;
+    right: var(--content-padding);
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    z-index: 100;
+    pointer-events: auto;
+    isolation: isolate;
+}
+
+.circularFrame {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-accent-orange);
+    cursor: pointer;
+    pointer-events: auto;
+    background: var(--color-bg-dark);
+    padding: 0;
+    transition: transform var(--duration-normal) var(--ease-spring),
+        box-shadow var(--duration-normal) var(--ease-out),
+        border-color var(--duration-normal) var(--ease-out);
+}
+
+.circularFrame:hover {
+    transform: scale(1.2);
+    border-color: var(--color-accent-red);
+    box-shadow: 0 0 35px rgba(198, 24, 22, 0.6);
+}
+
+.circularFrame:focus {
+    outline: 2px solid var(--color-accent-red);
+    outline-offset: 4px;
+}
+
+.circularFrame:active {
+    transform: scale(1.1);
+}
+
+.circularFrameImage {
+    object-fit: cover;
+}
+
+/* Extra large screens - even bigger frames */
+@media (min-width: 1400px) {
+    .circularFrame {
+        width: 150px;
+        height: 150px;
+        border-width: 4px;
+    }
+
+    .circularFramesContainer {
+        gap: var(--space-8);
+    }
+
+    .roomContent {
+        max-width: 950px;
+    }
+
+    .roomHeading {
+        font-size: 5rem;
+    }
+
+    .roomText {
+        font-size: 1.6rem;
+    }
+
+    .roomEmphasis {
+        font-size: 1.9rem;
+    }
+}
+
+/* ============================================ */
+/* FLOOR INDICATOR */
+/* ============================================ */
+
+.floorIndicator {
+    position: absolute;
+    bottom: var(--space-10);
+    right: var(--content-padding);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-base);
+    font-family: var(--font-body);
+    font-variant-numeric: tabular-nums;
+    z-index: 10;
+}
+
+.currentFloor {
+    color: var(--color-accent-red);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-xl);
+}
+
+.floorDivider {
+    color: var(--color-text-subtle);
+}
+
+.totalFloors {
+    color: var(--color-text-muted);
+}
+
+/* ============================================ */
+/* ANIMATION VARIANTS */
+/* ============================================ */
+
+/* Quote/Legacy sections - dramatic glow */
+.variant-typewriter .roomEmphasis {
+    border-left-color: var(--color-accent-orange);
+    text-shadow: 0 0 30px rgba(220, 131, 59, 0.2);
+}
+
+/* Art sections - cinematic feel */
+.variant-zoomReveal .roomContent {
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: var(--space-24);
+}
+
+/* Conclusion sections - letterbox effect */
+.variant-fadeBlur::before,
+.variant-fadeBlur::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 12%;
+    background: var(--color-bg-dark);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.variant-fadeBlur::before {
+    top: 0;
+}
+
+.variant-fadeBlur::after {
+    bottom: 0;
+}
+
+/* ============================================ */
+/* EXTRA LARGE SCREENS (1400px+) */
+/* ============================================ */
+
+@media (min-width: 1400px) {
+    .heroTitle {
+        font-size: clamp(8rem, 12vw, 14rem);
+    }
+
+    .heroSubtitle {
+        font-size: var(--text-2xl);
+    }
+
+    .roomContent {
+        max-width: 1000px;
+        padding-bottom: var(--space-20);
+    }
+
+    .roomHeading {
+        font-size: 5rem;
+    }
+
+    .roomText {
+        font-size: 1.6rem;
+    }
+
+    .roomEmphasis {
+        font-size: 1.9rem;
+    }
+
+    .circularFrame {
+        width: 160px;
+        height: 160px;
+        border-width: 4px;
+    }
+
+    .circularFramesContainer {
+        gap: var(--space-8);
+        right: 5%;
+    }
+
+    .scrollBadge {
+        width: 100px;
+        height: 100px;
+    }
+
+    .scrollArrow {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+/* ============================================ */
+/* LAPTOP (1024px - 1399px) */
+/* ============================================ */
+
+@media (min-width: 1024px) and (max-width: 1399px) {
+    .heroTitle {
+        font-size: clamp(6rem, 10vw, 10rem);
+    }
+
+    .roomContent {
+        max-width: 800px;
+    }
+
+    .circularFrame {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+/* ============================================ */
+/* TABLET (768px - 1023px) */
+/* ============================================ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .heroTitle {
+        font-size: clamp(5rem, 12vw, 8rem);
+    }
+
+    .heroSubtitle {
+        font-size: var(--text-lg);
+    }
+
+    .roomContent {
+        max-width: 90%;
+        padding-bottom: var(--space-16);
+    }
+
+    .roomHeading {
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+    }
+
+    .roomText,
+    .roomEmphasis {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+    }
+
+    .circularFramesContainer {
+        right: var(--space-4);
+        gap: var(--space-4);
+    }
+
+    .circularFrame {
+        width: 100px;
+        height: 100px;
+    }
+
+    .floorIndicator {
+        font-size: var(--text-sm);
+    }
+
+    .currentFloor {
+        font-size: var(--text-lg);
+    }
+}
+
+/* ============================================ */
+/* MOBILE LARGE (480px - 767px) */
+/* ============================================ */
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .heroSection {
+        padding: var(--space-4);
+    }
+
+    .heroTitle {
+        font-size: clamp(3.5rem, 15vw, 5rem);
+        letter-spacing: 0.06em;
+    }
+
+    .heroSubtitle {
+        font-size: var(--text-base);
+        padding: 0 var(--space-4);
+        max-width: 90%;
+    }
+
+    .scrollBadge {
+        width: 75px;
+        height: 75px;
+        bottom: 10%;
+    }
+
+    .scrollBadgeText {
+        font-size: 6.5px;
+    }
+
+    .scrollArrow {
+        width: 30px;
+        height: 30px;
+    }
+
+    .roomSection {
+        align-items: center;
+    }
+
+    .roomContent {
+        padding: var(--space-4);
+        padding-bottom: var(--space-16);
+        max-width: 100%;
+    }
+
+    .roomHeading {
+        font-size: clamp(2rem, 8vw, 2.75rem);
+        margin-bottom: var(--space-4);
+    }
+
+    .roomSubheading {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-4);
+    }
+
+    .roomText {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-4);
+    }
+
+    .roomEmphasis {
+        font-size: var(--text-lg);
+        padding-left: var(--space-4);
+        border-left-width: 3px;
+    }
+
+    .bulletList li {
+        font-size: var(--text-sm);
+        padding-left: var(--space-4);
+    }
+
+    .circularFramesContainer {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-3);
+        margin-bottom: var(--space-4);
+        padding: 0;
+        width: 100%;
+    }
+
+    .circularFrame {
+        width: 80px;
+        height: 80px;
+    }
+
+    .floorIndicator {
+        bottom: var(--space-4);
+        right: var(--space-4);
+    }
+
+    .variant-fadeBlur::before,
+    .variant-fadeBlur::after {
+        height: 6%;
+    }
+
+    .variant-zoomReveal .roomContent {
+        text-align: left;
+        padding-bottom: var(--space-12);
+    }
+}
+
+/* ============================================ */
+/* MOBILE SMALL (320px - 479px) */
+/* ============================================ */
+
+@media (max-width: 479px) {
+    .heroSection {
+        padding: var(--space-2);
+    }
+
+    .heroTitle {
+        font-size: clamp(2.5rem, 18vw, 4rem);
+        letter-spacing: 0.05em;
+    }
+
+    .heroSubtitle {
+        font-size: var(--text-sm);
+        padding: 0 var(--space-3);
+        max-width: 95%;
+        line-height: var(--line-height-relaxed);
+    }
+
+    .scrollBadge {
+        width: 60px;
+        height: 60px;
+        bottom: 8%;
+    }
+
+    .scrollBadgeText {
+        font-size: 5px;
+    }
+
+    .scrollArrow {
+        width: 24px;
+        height: 24px;
+    }
+
+    .scrollArrow svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .roomSection {
+        align-items: flex-end;
+    }
+
+    .roomContent {
+        padding: var(--space-3);
+        padding-bottom: var(--space-14);
+        max-width: 100%;
+    }
+
+    .roomHeading {
+        font-size: clamp(1.5rem, 10vw, 2rem);
+        margin-bottom: var(--space-3);
+        line-height: 1.2;
+    }
+
+    .roomSubheading {
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-3);
+    }
+
+    .roomText {
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-3);
+        line-height: var(--line-height-relaxed);
+    }
+
+    .roomEmphasis {
+        font-size: var(--text-base);
+        padding-left: var(--space-3);
+        border-left-width: 2px;
+        margin-top: var(--space-3);
+    }
+
+    .bulletList {
+        margin-top: var(--space-3);
+    }
+
+    .bulletList li {
+        font-size: var(--text-xs);
+        padding-left: var(--space-3);
+        margin-bottom: var(--space-2);
+    }
+
+    .circularFramesContainer {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: var(--space-2);
+        margin-bottom: var(--space-4);
+        padding: 0;
+        width: 100%;
+    }
+
+    .circularFrame {
+        width: 60px;
+        height: 60px;
+        border-width: 2px;
+    }
+
+    .circularFrame:hover {
+        transform: scale(1.1);
+    }
+
+    .floorIndicator {
+        bottom: var(--space-3);
+        right: var(--space-3);
+        gap: var(--space-1);
+    }
+
+    .currentFloor {
+        font-size: var(--text-base);
+    }
+
+    .totalFloors {
+        font-size: var(--text-sm);
+    }
+
+    .variant-fadeBlur::before,
+    .variant-fadeBlur::after {
+        height: 5%;
+    }
+
+    .variant-zoomReveal .roomContent {
+        text-align: left;
+        padding-bottom: var(--space-10);
+    }
+
+    .variant-typewriter .roomEmphasis {
+        text-shadow: none;
+    }
+}
+
+/* ============================================ */
+/* EXTRA SMALL SCREENS (below 320px) */
+/* ============================================ */
+
+@media (max-width: 319px) {
+    .heroTitle {
+        font-size: 2rem;
+        letter-spacing: 0.03em;
+    }
+
+    .heroSubtitle {
+        font-size: var(--text-xs);
+    }
+
+    .scrollBadge {
+        display: none;
+    }
+
+    .roomHeading {
+        font-size: 1.25rem;
+    }
+
+    .roomText,
+    .roomEmphasis {
+        font-size: var(--text-xs);
+    }
+
+    .circularFrame {
+        width: 50px;
+        height: 50px;
+    }
+
+    .floorIndicator {
+        display: none;
+    }
+}
+
+/* ============================================ */
+/* LANDSCAPE MOBILE ORIENTATION */
+/* ============================================ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .heroSection {
+        min-height: 100vh;
+    }
+
+    .heroContent {
+        padding-top: var(--space-8);
+    }
+
+    .heroTitle {
+        font-size: clamp(2rem, 8vh, 4rem);
+    }
+
+    .heroSubtitle {
+        font-size: var(--text-sm);
+    }
+
+    .scrollBadge {
+        width: 50px;
+        height: 50px;
+        bottom: 5%;
+    }
+
+    .scrollArrow {
+        width: 20px;
+        height: 20px;
+    }
+
+    .roomContent {
+        padding-bottom: var(--space-8);
+    }
+
+    .roomHeading {
+        font-size: clamp(1.5rem, 6vh, 2.5rem);
+        margin-bottom: var(--space-2);
+    }
+
+    .roomText {
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-2);
+    }
+
+    .circularFramesContainer {
+        flex-direction: row;
+        position: absolute;
+        right: var(--space-4);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .circularFrame {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* ============================================ */
+/* REDUCED MOTION SUPPORT */
+/* ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .heroBackground,
+    .roomBackground {
+        will-change: auto;
+    }
+
+    .heroTitle {
+        will-change: auto;
+    }
+
+    .scrollBadgeCircle {
+        animation: none;
+    }
+
+    .roomContent {
+        will-change: auto;
+    }
+
+    .circularFrame {
+        transition: none;
+    }
+
+    .circularFrame:hover {
+        transform: none;
+    }
+}
