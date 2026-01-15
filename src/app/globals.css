@@ -4,15 +4,12 @@
    ======================================== */
 
 /* ========================================
-   FONT IMPORTS
-   Using Google Fonts for reliable delivery
+   FONT DECLARATIONS
+   Local fonts loaded via next/font/local in layout.tsx
+   These @font-face rules are kept for additional browser support
    ======================================== */
 
-/* Google Fonts - Inter (body) and Playfair Display (headings) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
-/* Custom font declarations - add your font files when available */
-/* Apfel Grotezk - Download from: https://uncut.wtf/sans-serif/apfel-grotezk/ */
+/* Apfel Grotezk - Body Font */
 @font-face {
   font-family: 'Apfel Grotezk';
   src: url('/fonts/ApfelGrotezk-Regular.woff2') format('woff2'),
@@ -33,12 +30,10 @@
   font-display: swap;
 }
 
-/* New Culture - Heading Font (custom) - add your file when available */
+/* New Culture - Heading Font (per Summary.md) */
 @font-face {
   font-family: 'New Culture';
-  src: url('/fonts/newculture-Regular.woff2') format('woff2'),
-    url('/fonts/newculture-Regular.woff') format('woff'),
-    url('/fonts/newculture-Regular.otf') format('opentype');
+  src: url('/fonts/NewCulture-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -86,9 +81,9 @@
   --color-accent: var(--color-accent-red);
   --color-accent-hover: var(--color-accent-orange);
 
-  /* Typography */
-  --font-body: 'Apfel Grotezk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-heading: 'New Culture', 'Playfair Display', Georgia, serif;
+  /* Typography - Using CSS variables from next/font */
+  --font-body: var(--font-apfel, 'Apfel Grotezk'), var(--font-inter, 'Inter'), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: var(--font-new-culture, 'New Culture'), var(--font-playfair, 'Playfair Display'), Georgia, serif;
   --font-sans: var(--font-body);
   --font-display: var(--font-heading);
 

@@ -1,7 +1,42 @@
 import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css';
 
+// Local font: New Culture (for headings - per Summary.md)
+const newCulture = localFont({
+  src: [
+    {
+      path: '../../public/fonts/NewCulture-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-new-culture',
+  display: 'swap',
+  fallback: ['Playfair Display', 'Georgia', 'serif'],
+});
+
+// Local font: Apfel Grotezk (for body text)
+const apfelGrotezk = localFont({
+  src: [
+    {
+      path: '../../public/fonts/ApfelGrotezk-Regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/ApfelGrotezk-RegularBrukt.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-apfel',
+  display: 'swap',
+  fallback: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+});
+
+// Google Fonts fallbacks
 const playfair = Playfair_Display({
   subsets: ['latin'],
   display: 'swap',
@@ -25,7 +60,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${newCulture.variable} ${apfelGrotezk.variable} ${playfair.variable} ${inter.variable}`}
+    >
       <body>{children}</body>
     </html>
   );

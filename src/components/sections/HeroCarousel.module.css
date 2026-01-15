@@ -864,3 +864,45 @@
         transform: none;
     }
 }
+
+/* ============================================ */
+/* TEXT PHASE CROSSFADE FOR MERGED SLIDES */
+/* ============================================ */
+
+.textPhasesContainer {
+    position: relative;
+    width: 100%;
+}
+
+.textPhase1,
+.textPhase2 {
+    width: 100%;
+    will-change: transform, opacity;
+}
+
+.textPhase1 {
+    /* Phase 1 is visible initially */
+    opacity: 1;
+}
+
+.textPhase2 {
+    /* Phase 2 starts hidden, positioned absolutely to overlap */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/* Responsive adjustments for text phases */
+@media (max-width: 767px) {
+    .textPhase2 {
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+
+    .textPhasesContainer {
+        display: flex;
+        flex-direction: column;
+    }
+}
