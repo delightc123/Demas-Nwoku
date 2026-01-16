@@ -18,6 +18,8 @@ export interface ExhibitionSlide {
     heading?: string;
     subheading?: string;
     text?: string;
+    extendedText?: string;
+    additionalText?: string;
     emphasisText?: string;
     bulletPoints?: string[];
     backgroundImage?: string;
@@ -585,8 +587,14 @@ export default function HeroCarousel({
                             {slide.text && (
                                 <p className={styles.roomText}>{slide.text}</p>
                             )}
+                            {slide.extendedText && (
+                                <p className={styles.roomExtendedText}>{slide.extendedText}</p>
+                            )}
                             {slide.emphasisText && (
                                 <p className={styles.roomEmphasis}>{slide.emphasisText}</p>
+                            )}
+                            {slide.additionalText && (
+                                <p className={styles.roomAdditionalText}>{slide.additionalText}</p>
                             )}
                             {slide.bulletPoints && slide.bulletPoints.length > 0 && (
                                 <ul className={styles.bulletList}>

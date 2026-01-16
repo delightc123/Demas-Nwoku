@@ -1,7 +1,16 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css';
+
+// Viewport configuration for proper mobile rendering
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: '#060608',
+};
 
 // Local font: New Culture (for headings - per Summary.md)
 const newCulture = localFont({
